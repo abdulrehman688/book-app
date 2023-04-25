@@ -1,0 +1,47 @@
+<!-- <p>create works!</p> -->
+
+<h1 class="text-center mt-3 mb-5">Add a Book</h1>
+
+
+<form class="text-center" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="container form-group">
+        <label for="" class="fw-bolder">Book Title:</label>
+        <input 
+        formControlName="title"
+        class="form-control"
+        type="text"
+        id="title">
+
+        <div *ngIf="fetch['title'].touched && fetch['title'].invalid" style="color: red; background-color: red;">
+            <div *ngIf="fetch['title'].errors && fetch['title'].errors['required']">Enter Book name</div>
+        </div>
+    </div>
+<br>
+    <div class="container form-group">
+        <label for="" class="fw-bolder">Book Author:</label>
+        <input 
+        formControlName="author"
+        class="form-control" 
+        type="text" 
+        id="author">
+
+        <div *ngIf="fetch['author'].touched && fetch['author'].invalid" style="color: red; background-color: red;">
+            <div *ngIf="fetch['author'].errors && fetch['author'].errors['required']">Enter Book name</div>
+        </div>
+    </div>
+<br>
+    <div class="container form-group">
+        <label for="" class="fw-bolder">Book Genre:</label>
+        <input 
+        formControlName="genre"
+        class="form-control" 
+        type="text"
+        id="genre">
+
+        <div *ngIf="fetch['genre'].touched && fetch['genre'].invalid" style="color: red; background-color: red;">
+            <div *ngIf="fetch['genre'].errors && fetch['genre'].errors['required']">Enter Book name</div>
+        </div>
+    </div>
+<br>
+    <button type="submit" [disabled]=" !form.valid" class="btn btn-primary">Submit</button>
+</form>

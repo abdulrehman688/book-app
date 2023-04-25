@@ -1,0 +1,37 @@
+<h1 class="text-center">My Books</h1>
+
+<div class="container">
+    <br>
+        <a href="#" [routerLink]="['/component/create']" class="btn btn-dark">Add a Book</a>
+        <br><br>
+    <table class="table table-striped">
+        
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+            
+        <tbody>
+
+            <tr *ngFor="let item of body">
+                <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.author}}</td>
+            <td>{{item.genre}}</td>
+            <td>|
+                <a href="#" [routerLink]="['/component/', item.id, 'edit']" class="btn btn-primary">Edit</a> |
+                <!-- <a href="#" [routerLink]="['/component/', item.id, 'view']">View</a> | -->
+                <!-- <a type="reset" href="#" (click)="deletebook(item.id)">Delete</a>| -->
+                
+                <button (click)="deletebook(item.id)" class="btn btn-danger">Delete</button>|
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
