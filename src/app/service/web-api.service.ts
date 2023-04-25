@@ -10,7 +10,7 @@ export class WebApiService {
 
   private apiurl = 'http://localhost:3000/books'
 
-  constructor(private httpclient:HttpClient) { }
+  constructor( private httpclient:HttpClient ) { }
 
   httpOption = {
     headers: new HttpHeaders({
@@ -31,10 +31,22 @@ export class WebApiService {
    return this.httpclient.get(this.apiurl + '?id=' + id);
   }
 
-  update(id: number, data: Book): Observable<any>{
-    return this.httpclient.post(this.apiurl, JSON.
+
+  // update(id: number, data: Book): Observable<any>{
+  //   return this.httpclient.put(`${this.apiurl}/${id}`, JSON.
+  //     stringify(data), this.httpOption)
+  // }
+
+
+  update(id:number, data:Book): Observable<any>{
+    console.log('id:', id);
+    return this.httpclient.put(this.apiurl + `/${id}`, JSON.
       stringify(data), this.httpOption)
+
   }
+
+  
+  
 
   deletebook(id:number) {
     return this.httpclient.delete(`${this.apiurl}/${id}`)

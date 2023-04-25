@@ -43,6 +43,6 @@ export class EditComponent {
         console.log("updated")
         console.log(res)
       })
-      this.form.reset()
+      // this.form.reset()
      }
 }
